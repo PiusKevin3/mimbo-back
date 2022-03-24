@@ -6,6 +6,7 @@ const create = async function (req, res) {
 
 	const TagsInfo = req.body;
 
+    
 	try {
 		if (!TagsInfo)
 			return res.status(400).json({ erorr: 'Please fill form data' });
@@ -27,13 +28,16 @@ const create = async function (req, res) {
 		res.send({ message: error.message });
 	}
 
+    
 
 };
 
 
 const getAll = async function (req, res) {
+    const query = req.params.typeNameValue
+
 	try {
-		await Tags.findAll({})
+		await Tags.findAll({ where: {typeName:query} })
 			.then(resData => {
 				return res.status(200).send({ resData, msg: 'Tags search Successfully!' });
 
@@ -54,7 +58,8 @@ const getAll = async function (req, res) {
 const getAllWithSameTagtype = async function (req, res) {
     const typeNameQuery = req.params.typeName
     const tagNameQuery = req.params.tagName
-
+      
+        
     var condition = tagNameQuery&&tagNameQuery ? 
               {
                 [Op.and]: [{

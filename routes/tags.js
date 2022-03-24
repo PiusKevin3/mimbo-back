@@ -3,7 +3,7 @@ const router = require('express').Router();
 const TagsController = require('../controllers/tags');
 
 // fetch all  data
-router.get('/getAll', TagsController.getAll);
+router.get('/getAll/:typeNameValue', TagsController.getAll);
 
 // fetch all  data where tags match
 router.get('/getAllWithSameTagtype/:typeName/:tagName', TagsController.getAllWithSameTagtype);
