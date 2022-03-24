@@ -1,7 +1,7 @@
 
 ## Installation Steps
 
-# NB: Please make sure you have mysql database installed on your local machine and then create a database of your name of choice.!
+* NB: Please make sure you have mysql database installed on your local machine and then create a database of your name of choice.!
 
 1. Clone the repo
 
